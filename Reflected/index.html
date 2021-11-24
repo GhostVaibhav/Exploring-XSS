@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reflected XSS</title>
+    <script>
+        function pressEnter() {
+            var x = document.getElementById("name");
+            document.getElementById("output_name").innerHTML = x.value;
+            document.getElementById("message").style.visibility = "visible";
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        #message {
+            visibility: hidden;
+            display: flex;
+            flex-direction: row;
+        }
+    </style>
+</head>
+
+<body>
+    <p>Enter your name: <input id="name"><button onclick="javascript:pressEnter()">Go!</button></p>
+    <p id="message">
+        Hello
+        <p id="output_name"></p>
+    </p>
+</body>
+
+</html>
