@@ -1,0 +1,12 @@
+<html>
+    <body>
+        <div class=container>
+        <h2>DOM based XSS</h2><br>
+        <b><div id="result">Fail</div></b>
+    <script>
+   var num=document.URL.split("num=")[1];
+    document.getElementById("result").innerHTML=eval(num);
+   </script>
+    </div>
+        </body>
+    </html>
